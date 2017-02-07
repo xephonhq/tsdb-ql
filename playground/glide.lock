@@ -1,0 +1,21 @@
+hash: 926eb1066249d9c2b1d206f0772bbc0f4f092edba7b1e14a3d29154fb3dd9140
+updated: 2017-02-07T14:00:30.204456844-08:00
+imports:
+- name: github.com/antlr/antlr4
+  version: aacd2a2c95816d8dc1c05814051d631bfec4cf3e
+  vcs: git
+  subpackages:
+  - runtime/Go/antlr
+- name: github.com/dyweb/gommon
+  version: 7aad4c9c1ff32b9473a816ba27158bf59bfec307
+  vcs: git
+- name: github.com/peterh/liner
+  version: 3c5f577f62ec95a012ea48a58dd4de3c48222a35
+  vcs: git
+- name: github.com/pkg/errors
+  version: 645ef00459ed84a119197bfb8d8205042c6df63d
+  vcs: git
+testImports:
+- name: github.com/stretchr/testify
+  version: 2402e8e7a02fc811447d11f881aa9746cdc57983
+  vcs: git

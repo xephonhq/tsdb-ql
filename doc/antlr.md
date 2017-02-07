@@ -1,4 +1,4 @@
-o# ANTLR
+# ANTLR
 
 ## Install
 
@@ -32,3 +32,9 @@ ANTLR Parser Generator  Version 4.6
 - install [maven](https://maven.apache.org/download.cgi)
 - `mvn -DskipTests install`
 - jars are in `tool/target`
+
+## Golang
+
+- `go get github.com/antlr/antlr4/runtime/Go/antlr`
+- https://github.com/antlr/antlr4/blob/master/doc/go-target.md
+- `antlr4 -Dlanguage=Go MyGrammar.g4`

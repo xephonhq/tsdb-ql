@@ -1,5 +1,6 @@
 # Documentation and Development Notes
 
+- [Environment Setup](env.md)
 - [Specification draft](spec-draft.md)
 
 ## Tools
