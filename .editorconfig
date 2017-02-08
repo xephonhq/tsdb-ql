@@ -10,7 +10,7 @@ end_of_line = lf
 [*.{sh,go,java,md}]
 charset = utf-8
 
-[*.{md}]
+[*.md]
 indent_style = space
 indent_size = 2
 
