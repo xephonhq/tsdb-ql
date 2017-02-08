@@ -8,8 +8,6 @@ A full implementation of WHILE-lang including
   - big step
 - translator
 
-## Usage
+## Develop
 
-Test 
-
-TODO
+- Run `go test -v -cover ./ast` for Test or `Ayi test`
