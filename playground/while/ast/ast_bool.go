@@ -1,4 +1,4 @@
-package while
+package ast
 
 import "fmt"
 

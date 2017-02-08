@@ -7,4 +7,9 @@ A full implementation of WHILE-lang including
   - small step
   - big step
 - translator
-  
+
+## Usage
+
+Test 
+
+TODO
