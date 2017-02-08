@@ -55,6 +55,13 @@ func TestArithSumExp_Eval(t *testing.T) {
 	asst(ArithSumExp{l: ArithValExp{num: 1}, r: ArithValExp{num: 2}}, 3)
 }
 
+func TestArithSubExp_Eval(t *testing.T) {
+	var asst = func(exp ArithExp, v int) {
+		assertArithExp(exp, v, t)
+	}
+	asst(ArithSubExp{l: ArithValExp{num: 1}, r: ArithValExp{num: 2}}, -1)
+}
+
 // TODO: or, not, not eq, gt, les
 func TestBoolAndExp_Eval(t *testing.T) {
 	var asst = func(exp BoolExp, b bool) {
@@ -71,7 +78,7 @@ func TestCommandWhileExp_Eval(t *testing.T) {
 
 	var exp = CommandSeqExp{c1: CommandAssignExp{v: VarExpr{name: "x"}, e: ArithValExp{num: 1}},
 		c2: CommandWhileExp{b: BoolLesExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 100}},
-			c: CommandAssignExp{v: VarExpr{name: "x"}, e: ArithSumExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 100}}}},
+			c:             CommandAssignExp{v: VarExpr{name: "x"}, e: ArithSumExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 100}}}},
 	}
 
 	asst(exp, map[string]int{"x": 101})

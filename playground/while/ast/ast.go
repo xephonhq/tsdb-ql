@@ -26,6 +26,7 @@ type BoolExp interface {
 type CommandExp interface {
 	Eval(s State)
 	// TODO: Add EvalS for small step
+	EvalS(s State) CommandExp
 	Exp
 }
 
