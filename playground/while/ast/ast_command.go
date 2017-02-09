@@ -80,9 +80,9 @@ func (ifExpr CommandIfExp) Eval(s State) {
 
 func (ifExpr CommandIfExp) EvalS(s State) CommandExp {
 	if ifExpr.b.Eval(s) {
-		return ifExpr.c1.EvalS(s)
+		return ifExpr.c1
 	} else {
-		return  ifExpr.c2.EvalS(s)
+		return  ifExpr.c2
 	}
 }
 
@@ -100,15 +100,12 @@ func (whileExpr CommandWhileExp) Eval(s State) {
 	if whileExpr.b.Eval(s) {
 		whileExpr.c.Eval(s)
 		whileExpr.Eval(s)
-	} else {
-		//skip
 	}
 }
 
 func (whileExpr CommandWhileExp) EvalS(s State) CommandExp {
 	if whileExpr.b.Eval(s) {
-		return whileExpr.c.EvalS(s)
-		whileExpr.EvalS(s)
+		return CommandSeqExp{c1: whileExpr.c, c2: whileExpr}
 	} else {
 		return CommandSkipExp{}
 	}

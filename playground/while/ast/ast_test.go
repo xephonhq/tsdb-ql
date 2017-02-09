@@ -62,6 +62,20 @@ func TestArithSubExp_Eval(t *testing.T) {
 	asst(ArithSubExp{l: ArithValExp{num: 1}, r: ArithValExp{num: 2}}, -1)
 }
 
+func TestArithMulExp_Eval(t *testing.T) {
+	var asst = func(exp ArithExp, v int) {
+		assertArithExp(exp, v, t)
+	}
+	asst(ArithMulExp{l: ArithValExp{num: 5}, r: ArithValExp{num: 6}}, 30)
+}
+
+func TestArithDivExp_Eval(t *testing.T) {
+	var asst = func(exp ArithExp, v int) {
+		assertArithExp(exp, v, t)
+	}
+	asst(ArithDivExp{l: ArithValExp{num: 22}, r: ArithValExp{num: 2}}, 11)
+}
+
 // TODO: or, not, not eq, gt, les
 func TestBoolAndExp_Eval(t *testing.T) {
 	var asst = func(exp BoolExp, b bool) {
@@ -71,17 +85,26 @@ func TestBoolAndExp_Eval(t *testing.T) {
 }
 
 // TODO: if, seq, assign Though, this test should cover most of them
+func TestCommandAssignExp_Eval(t *testing.T) {
+	var asst = func(exp CommandExp, s State) {
+		assertCommandExp(exp, s, t)
+	}
+
+	var exp = CommandAssignExp{v: VarExpr{name: "x"}, e: ArithValExp{num: 1}}
+	asst(exp, map[string]int{"x": 1})
+}
+
 func TestCommandWhileExp_Eval(t *testing.T) {
 	var asst = func(exp CommandExp, s State) {
 		assertCommandExp(exp, s, t)
 	}
 
-	var exp = CommandSeqExp{c1: CommandAssignExp{v: VarExpr{name: "x"}, e: ArithValExp{num: 1}},
-		c2: CommandWhileExp{b: BoolLesExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 100}},
-			c:             CommandAssignExp{v: VarExpr{name: "x"}, e: ArithSumExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 100}}}},
-	}
+	var exp = CommandWhileExp{b: BoolLesExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 200}},
+		c: CommandAssignExp{v: VarExpr{name: "x"},
+			e: ArithSumExp{l: VarExpr{name: "x"},
+				r:        ArithValExp{num: 1}}}}
 
-	asst(exp, map[string]int{"x": 101})
+	asst(exp, map[string]int{"x": 200})
 }
 
 // TODO: small step test
