@@ -12,7 +12,7 @@ func (skipExpr CommandSkipExp) Eval(s State) {
 	//do nothing
 }
 
-func (skipExpr CommandSkipExp) EvalS(s State) CommandExp{
+func (skipExpr CommandSkipExp) EvalS(s State) CommandExp {
 	//do nothing
 	return CommandSkipExp{}
 }
@@ -30,12 +30,10 @@ func (assignExpr CommandAssignExp) Eval(s State) {
 	s[assignExpr.v.Name()] = assignExpr.e.Eval(s)
 }
 
-
-func (assignExpr CommandAssignExp) EvalS(s State) CommandExp{
+func (assignExpr CommandAssignExp) EvalS(s State) CommandExp {
 	s[assignExpr.v.Name()] = assignExpr.e.Eval(s)
 	return CommandSkipExp{}
 }
-
 
 func (assignExpr CommandAssignExp) String() string {
 	return fmt.Sprintf("%s := %s", assignExpr.v, assignExpr.e)
@@ -51,7 +49,7 @@ func (seqExpr CommandSeqExp) Eval(s State) {
 	seqExpr.c2.Eval(s) //s2
 }
 
-func (seqExpr CommandSeqExp) EvalS(s State ) CommandExp {
+func (seqExpr CommandSeqExp) EvalS(s State) CommandExp {
 	_, ok := seqExpr.c1.(CommandSkipExp)
 	if ok {
 		return seqExpr.c2
@@ -82,7 +80,7 @@ func (ifExpr CommandIfExp) EvalS(s State) CommandExp {
 	if ifExpr.b.Eval(s) {
 		return ifExpr.c1
 	} else {
-		return  ifExpr.c2
+		return ifExpr.c2
 	}
 }
 
@@ -113,4 +111,14 @@ func (whileExpr CommandWhileExp) EvalS(s State) CommandExp {
 
 func (whileExpr CommandWhileExp) String() string {
 	return fmt.Sprintf("while %s then %s ", whileExpr.b, whileExpr.c)
+}
+
+func EvalAll(exp CommandExp, s State) {
+	_,ok := exp.(CommandSkipExp)
+
+	for !ok {
+		exp = exp.EvalS(s)
+		fmt.Sprintf("<%s;%s>", exp, s)
+		_,ok = exp.(CommandSkipExp)
+	}
 }
