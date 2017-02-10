@@ -45,6 +45,8 @@ func loop() {
 			p.BuildParseTrees = true
 			tree := p.Prog()
 			antlr.ParseTreeWalkerDefault.Walk(parser.NewPrinterwhileListener(), tree)
+			visitor := parser.NewAstBuilder()
+			visitor.Visit(tree)
 		}
 	}
 }

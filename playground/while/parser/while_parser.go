@@ -219,6 +219,16 @@ func (s *ProgContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *ProgContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitProg(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 func (p *whileParser) Prog() (localctx IProgContext) {
 	localctx = NewProgContext(p, p.GetParserRuleContext(), p.GetState())
 	p.EnterRule(localctx, 0, whileParserRULE_prog)
@@ -362,6 +372,16 @@ func (s *DivContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *DivContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitDiv(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type SubContext struct {
 	*AexpContext
 }
@@ -412,6 +432,16 @@ func (s *SubContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *SubContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(whileListener); ok {
 		listenerT.ExitSub(s)
+	}
+}
+
+func (s *SubContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitSub(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -468,6 +498,16 @@ func (s *MulContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *MulContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitMul(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type VarContext struct {
 	*AexpContext
 }
@@ -502,6 +542,16 @@ func (s *VarContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *VarContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitVar(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type NumContext struct {
 	*AexpContext
 }
@@ -533,6 +583,16 @@ func (s *NumContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *NumContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(whileListener); ok {
 		listenerT.ExitNum(s)
+	}
+}
+
+func (s *NumContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitNum(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -586,6 +646,16 @@ func (s *SumContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *SumContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(whileListener); ok {
 		listenerT.ExitSum(s)
+	}
+}
+
+func (s *SumContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitSum(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -824,6 +894,16 @@ func (s *BoolContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *BoolContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitBool(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type LesContext struct {
 	*BexpContext
 }
@@ -874,6 +954,16 @@ func (s *LesContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *LesContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(whileListener); ok {
 		listenerT.ExitLes(s)
+	}
+}
+
+func (s *LesContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitLes(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -930,6 +1020,16 @@ func (s *NeqContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *NeqContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitNeq(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type EqContext struct {
 	*BexpContext
 }
@@ -983,6 +1083,16 @@ func (s *EqContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *EqContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitEq(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type GtContext struct {
 	*BexpContext
 }
@@ -1033,6 +1143,16 @@ func (s *GtContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *GtContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(whileListener); ok {
 		listenerT.ExitGt(s)
+	}
+}
+
+func (s *GtContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitGt(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1216,6 +1336,16 @@ func (s *SkipContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *SkipContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitSkip(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type WhileContext struct {
 	*CexpContext
 }
@@ -1276,6 +1406,16 @@ func (s *WhileContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *WhileContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(whileListener); ok {
 		listenerT.ExitWhile(s)
+	}
+}
+
+func (s *WhileContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitWhile(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
@@ -1342,6 +1482,16 @@ func (s *IfContext) ExitRule(listener antlr.ParseTreeListener) {
 	}
 }
 
+func (s *IfContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitIf(s)
+
+	default:
+		return t.VisitChildren(s)
+	}
+}
+
 type AssignContext struct {
 	*CexpContext
 }
@@ -1383,6 +1533,16 @@ func (s *AssignContext) EnterRule(listener antlr.ParseTreeListener) {
 func (s *AssignContext) ExitRule(listener antlr.ParseTreeListener) {
 	if listenerT, ok := listener.(whileListener); ok {
 		listenerT.ExitAssign(s)
+	}
+}
+
+func (s *AssignContext) Accept(visitor antlr.ParseTreeVisitor) interface{} {
+	switch t := visitor.(type) {
+	case whileVisitor:
+		return t.VisitAssign(s)
+
+	default:
+		return t.VisitChildren(s)
 	}
 }
 
