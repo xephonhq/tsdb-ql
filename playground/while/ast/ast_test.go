@@ -99,11 +99,10 @@ func TestCommandWhileExp_Eval(t *testing.T) {
 		assertCommandExp(exp, s, t)
 	}
 
-	var exp = CommandWhileExp{b: BoolLesExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 200}},
+	var exp = CommandSeqExp{c1: CommandAssignExp{v: VarExpr{name: "x"}, e: ArithValExp{num: 1}}, c2: CommandWhileExp{b: BoolLesExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 200}},
 		c: CommandAssignExp{v: VarExpr{name: "x"},
 			e: ArithSumExp{l: VarExpr{name: "x"},
-				r:        ArithValExp{num: 1}}}}
-
+				r:        ArithValExp{num: 1}}}}}
 	asst(exp, map[string]int{"x": 200})
 }
 
