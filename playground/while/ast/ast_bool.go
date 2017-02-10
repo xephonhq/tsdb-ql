@@ -55,7 +55,7 @@ func (equ BoolEqExp) Eval(s State) bool {
 }
 
 func (equ BoolEqExp) String() string {
-	return fmt.Sprintf("%s = %s", equ.l, equ.r)
+	return fmt.Sprintf("(%s = %s)", equ.l, equ.r)
 }
 
 // Eval for BoolLesExp evaluate left less than right
@@ -64,7 +64,7 @@ func (les BoolLesExp) Eval(s State) bool {
 }
 
 func (les BoolLesExp) String() string {
-	return fmt.Sprintf("%s < %s", les.l, les.r)
+	return fmt.Sprintf("(%s < %s)", les.l, les.r)
 }
 
 //
@@ -73,7 +73,7 @@ func (not BoolNotExp) Eval(s State) bool {
 }
 
 func (not BoolNotExp) String() string {
-	return fmt.Sprintf("!%s", not.b)
+	return fmt.Sprintf("(!%s)", not.b)
 }
 
 //
@@ -82,7 +82,7 @@ func (and BoolAndExp) Eval(s State) bool {
 }
 
 func (and BoolAndExp) String() string {
-	return fmt.Sprintf("%s and %s", and.l, and.r)
+	return fmt.Sprintf("(%s and %s)", and.l, and.r)
 }
 
 func (or BoolOrExp) Eval(s State) bool {
@@ -90,7 +90,7 @@ func (or BoolOrExp) Eval(s State) bool {
 }
 
 func (or BoolOrExp) String() string {
-	return fmt.Sprintf("%s or %s", or.l, or.r)
+	return fmt.Sprintf("(%s or %s)", or.l, or.r)
 }
 
 // === End of Boolean Expressions
