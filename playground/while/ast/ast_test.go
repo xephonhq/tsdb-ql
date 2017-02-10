@@ -61,7 +61,7 @@ func assertEvalAll(exp CommandExp, postState State, t *testing.T) {
 	if fail {
 		t.Fail()
 	} else {
-		fmt.Printf("%s => %v\n", exp, postState)
+		//fmt.Printf("%s => %v\n", exp, postState)
 	}
 }
 
