@@ -163,12 +163,25 @@ func TestCommandWhileExp_EvalS(t *testing.T) {
 	}
 
 	var exp = CommandSeqExp{c1: CommandAssignExp{v: VarExpr{name: "x"}, e: ArithValExp{num: 1}},
-		c2: CommandWhileExp{b: BoolLesExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 200}},
+		c2: CommandWhileExp{b: BoolLesExp{l: VarExpr{name: "x"}, r: ArithValExp{num: 6}},
 			c: CommandAssignExp{v: VarExpr{name: "x"},
 				e: ArithSumExp{l: VarExpr{name: "x"},
 					r:        ArithValExp{num: 1}}}}}
 
-	asst(exp, map[string]int{"x": 200})
+	asst(exp, map[string]int{"x": 6})
 }
 
+func TestCommandIfExp_EvalS(t *testing.T) {
+	var asst = func(exp CommandExp, s State) {
+		assertEvalAll(exp, s, t)
+	}
 
+	var exp = CommandSeqExp{c1: CommandAssignExp{v: VarExpr{name: "x"}, e: ArithValExp{num: 1}},
+		c2: CommandIfExp{b: BoolLesExp{l: VarExpr{name: "x"}, r: ArithValExp{6} },
+			c1: CommandAssignExp{v: VarExpr{name: "x"},
+				e: ArithSumExp{l: VarExpr{name: "x"},
+					r:        ArithValExp{num: 1}}},
+			c2: CommandSkipExp{}}}
+
+	asst(exp, map[string]int{"x": 2})
+}

@@ -117,8 +117,9 @@ func EvalAll(exp CommandExp, s State) {
 	_,ok := exp.(CommandSkipExp)
 
 	for !ok {
+		fmt.Printf("<%s;%v>  =>\n", exp, s)
 		exp = exp.EvalS(s)
-		fmt.Sprintf("<%s;%s>", exp, s)
+		/*fmt.Printf("<%s;%v>  =>\n", exp, s)*/
 		_,ok = exp.(CommandSkipExp)
 	}
 }
