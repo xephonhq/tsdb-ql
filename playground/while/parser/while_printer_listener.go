@@ -8,7 +8,10 @@ import (
 
 // PrinterwhileListener just print
 type PrinterwhileListener struct {
+	// TODO: why embedding like this does not have problem
+	// Because BasewhileListener does not embed other things
 	*BasewhileListener
+	a int
 }
 
 // NewPrinterwhileListener returns a new PrinterwhileListener

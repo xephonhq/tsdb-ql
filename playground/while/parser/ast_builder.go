@@ -6,7 +6,10 @@ import (
 )
 
 type AstBuilder struct {
-	*BasewhileVisitor
+	// https://github.com/xephonhq/tsdb-ql/issues/3
+	// NOTE: when embedding by pointer, you have to initialize it
+	//*BasewhileVisitor
+	BasewhileVisitor
 	root ast.CommandSeqExp
 }
 

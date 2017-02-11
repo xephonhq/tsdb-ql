@@ -15,13 +15,14 @@ func TestAstBuilder_Visit(t *testing.T) {
 	p := NewwhileParser(stream)
 	p.AddErrorListener(antlr.NewDiagnosticErrorListener(true))
 	p.BuildParseTrees = true
-	//tree := p.Prog()
-	//antlr.ParseTreeWalkerDefault.Walk(NewPrinterwhileListener(), tree)
+	tree := p.Prog()
+	antlr.ParseTreeWalkerDefault.Walk(NewPrinterwhileListener(), tree)
 	visitor := NewAstBuilder()
+	//visitor := BasewhileVisitor{}
 	//fmt.Println(visitor)
 	//fmt.Println(tree)
 	//fmt.Println(visitor.Visit)
-	//visitor.Visit(tree)
+	visitor.Visit(tree)
 	visitorType := reflect.TypeOf(visitor)
 	// FIXME: it has Visit, why it still got a nil error
 	for i := 0; i < visitorType.NumMethod(); i++ {
