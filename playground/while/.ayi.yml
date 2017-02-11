@@ -1,2 +1,6 @@
 test:
   - go test -v -cover ./ast
+scripts:
+  gen:
+    # FIXME: this won't work, sh -c is not using .bashrc I guess
+    - sh -c "antlr4 -Dlanguage=Go while.g4"
