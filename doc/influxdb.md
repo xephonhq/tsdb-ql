@@ -1,6 +1,6 @@
 # InfluxDB
 
-InfluxDB is a greate reference for tsdb-ql
+InfluxDB is a great reference for tsdb-ql
 
 ## TODO
 
