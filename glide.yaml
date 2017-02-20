@@ -20,7 +20,7 @@ import:
 - package: github.com/peterh/liner
   vcs: git
   version: 3c5f577f62ec95a012ea48a58dd4de3c48222a35
-# testImport:
-# - package: github.com/stretchr/testify
-#   vcs: git
-#   version: 2402e8e7a02fc811447d11f881aa9746cdc57983
+testImport:
+- package: github.com/stretchr/testify
+  vcs: git
+  version: 2402e8e7a02fc811447d11f881aa9746cdc57983

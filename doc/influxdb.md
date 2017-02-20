@@ -7,6 +7,10 @@ InfluxDB is a great reference for tsdb-ql
 - [ ] infux shell does not support tab complete https://github.com/influxdata/influxdb/issues/7704
 - [ ] infux ql said you can't distinguish field and tag
 
+## Background
+
+- It uses [Extend Backus-Naur form](https://en.wikipedia.org/wiki/Extended_Backus%E2%80%93Naur_form) which is also what golang uses
+
 ## Install
 
 - Download binary from https://www.influxdata.com/downloads/#influxdb

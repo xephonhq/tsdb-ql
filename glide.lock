@@ -1,5 +1,5 @@
-hash: d8f476d6ef296761a0be7df1b01996c2af722069488724d738e9cd6ee99289a0
-updated: 2017-02-20T11:46:02.92542731-08:00
+hash: 26a3833a4c8da68a923a8ecd49c72cc6478fae6e4f0c308bbcaeae5a279c11af
+updated: 2017-02-20T12:27:44.903080045-08:00
 imports:
 - name: github.com/antlr/antlr4
   version: aacd2a2c95816d8dc1c05814051d631bfec4cf3e
@@ -18,4 +18,7 @@ imports:
 - name: github.com/pkg/errors
   version: 645ef00459ed84a119197bfb8d8205042c6df63d
   vcs: git
-testImports: []
+testImports:
+- name: github.com/stretchr/testify
+  version: 2402e8e7a02fc811447d11f881aa9746cdc57983
+  vcs: git
