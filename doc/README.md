@@ -10,3 +10,4 @@
 ## Other databases' Query Language
 
 - [InfluxQL](influxdb.md)
+- [Heroic](heroic.md)

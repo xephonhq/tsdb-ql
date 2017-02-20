@@ -1,0 +1,26 @@
+package: github.com/xephonhq/tsdb-ql
+license: MIT
+owners:
+- name: Pinglei Guo
+  email: at15@outlook.com
+  homepage: https://at15.github.io/
+excludeDirs:
+- playground
+import:
+- package: github.com/pkg/errors
+  vcs: git
+  version: 0.8.0
+- package: github.com/dyweb/gommon
+  vcs: git
+  version: 7aad4c9c1ff32b9473a816ba27158bf59bfec307
+- package: github.com/antlr/antlr4/runtime/Go/antlr
+  vcs: git
+  version: 4.6.0
+# influxdb is using this, but I don't know if there are better alternatives  
+- package: github.com/peterh/liner
+  vcs: git
+  version: 3c5f577f62ec95a012ea48a58dd4de3c48222a35
+# testImport:
+# - package: github.com/stretchr/testify
+#   vcs: git
+#   version: 2402e8e7a02fc811447d11f881aa9746cdc57983
