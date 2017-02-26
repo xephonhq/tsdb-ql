@@ -35,9 +35,25 @@ Split into three parts
 
 The first and third part are kind of like R I guess
 
+Fake data generation
+
+````
+
+````
+
+Query
+
+````
+````
+
 ## Ref
+
+### Time series model
+
+- [Probabilistic Modeling and Reasoning Time Series Modeling: AR, MA, ARMA and All That](http://www.inf.ed.ac.uk/teaching/courses/pmr/docs/arma.pdf)
 
 ### SparkQL
 
 - grammar file https://github.com/apache/spark/blob/master/sql/catalyst/src/main/antlr4/org/apache/spark/sql/catalyst/parser/SqlBase.g4
-- https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html
+- Spark QL https://databricks.com/blog/2015/04/13/deep-dive-into-spark-sqls-catalyst-optimizer.html
+- Data frame https://databricks.com/blog/2015/02/17/introducing-dataframes-in-spark-for-large-scale-data-science.html
